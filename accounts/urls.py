@@ -8,7 +8,7 @@ urlpatterns = [
     path('accounts/session', views.session_info_view, name='session_info'),
     path('accounts/password/', views.password_change_view, name='password_change'),
     path('accounts/profile/', views.profile_view, name='profile'),
-    path('accounts/login/', views.login_view, name='login'),
+    path('accounts/login/', views.login_view, name='<a href="{% url  %}">공지사항</a>'),
     path('accounts/logout/', views.logout_view, name='logout'),
     path('accounts/signup/', views.signup, name='signup'),
     path('accounts/signup/success/', views.signup_success, name='signup_success')
