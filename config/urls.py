@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.http import HttpResponse
+
+def home_test(request):
+    return HttpResponse("<h1>자동배포 테스트</h1>")
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home_test),
 ]
