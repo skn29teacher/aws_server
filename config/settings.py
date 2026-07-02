@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'storages',
 ]
 
@@ -72,7 +73,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # --> 루트의 template부터 검색
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,4 +142,14 @@ STATIC_URL = 'static/'
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# 인증에사용할 유저 모델 지정(앱이름.모델클래스명)
+AUTH_USER_MODEL = 'accounts.CustomerUser'
+
+LOGIN_URL='login' # 로그인 뷰의 url 네임을 지정
+
+# 세션관련 제어
+SESSION_COOKIE_AGE = 60  # 60초
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # 브라우져 종료시 세션 즉시 만료
+SESSION_SAVE_EVERY_REQUEST = True # 매 요청시 세션 만료일자를 최신 시점으로 갱신
