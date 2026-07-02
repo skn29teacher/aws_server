@@ -26,7 +26,7 @@ def password_change_view(request):
     return render(request, 'accounts/passowrd_change.html', {'form':form})
 
 def home(request):
-    return render(request,'main.html')
+    return render(request,'accounts/main.html')
 
 def signup(request):
     if request.method == 'POST':
