@@ -169,6 +169,7 @@ python manage.py migrate
 # settings.py의 ALLOWED_HOSTS에 EC2 퍼블릭 IP 등록 (최초 1회 편집)
 nano config/settings.py
 # ALLOWED_HOSTS = ['<EC2 탄력적 IP>', 'localhost', '127.0.0.1']
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
 ```
 
 ### ② Gunicorn 서비스 생성 (`/etc/systemd/system/gunicorn.service`)
